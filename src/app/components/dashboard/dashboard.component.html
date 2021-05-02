@@ -1,0 +1,33 @@
+<body>
+   <header>
+      <nav class ="navbar navbar-expand-md navbar-light bg-light">
+      <div><a routerLink="/homepage" class="navbar-brand">Smart Cafeteria</a></div>
+      
+      <ul class="navbar-nav">
+         
+        <li><a routerLink="/cda" class="nav-link">Current Dining Area</a></li>
+        <li><a routerLink="/csa" class="nav-link">Current Service Area</a></li>
+        <li><a routerLink="/dashboard" class="nav-link">Dashboard</a></li>
+        <li><a routerLink="/" class="nav-link">LogOut</a></li>
+      
+      </ul>
+        </nav>
+      </header> 
+  
+ 
+ 
+    <div class="top-container">
+  <h1 class="myname">You are logged in....</h1><br>
+  <button routerLink="/cda" mat-raised-button color="warn">Current Dining area</button>
+  <button routerLink="/csa" style="margin-left:10px;" mat-raised-button color="warn">Current Service Area</button>
+ </div>
+ <br>
+ <div class="top-container">
+
+    <button routerLink="/cdam" mat-raised-button color="warn">Current Dining area History Map</button>
+    <button routerLink="/csam" style="margin-left:10px;" mat-raised-button color="warn">Current Service Area History Map</button>
+   </div>
+
+
+
+</body>
