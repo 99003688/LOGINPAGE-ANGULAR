@@ -13,7 +13,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "loginUser")
-public class login  {
+public class Login  {
 
 
 
@@ -40,7 +40,7 @@ public class login  {
 
 	
 
-	public login(String username, String password, Date date) {
+	public Login(String username, String password, Date date) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -51,7 +51,7 @@ public class login  {
 	
 
 
-	public login() {
+	public Login() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -60,7 +60,7 @@ public class login  {
 
 
 
-	public login(String username, String password) {
+	public Login(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -101,13 +101,4 @@ public class login  {
 	public String toString() {
 		return "login [username=" + username + ", password=" + password + ", date=" + date + "]";
 	}
-
-	
-	
-
-	
-
-	
-	
-
 }

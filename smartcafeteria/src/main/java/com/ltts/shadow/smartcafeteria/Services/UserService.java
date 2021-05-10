@@ -3,17 +3,17 @@ package com.ltts.shadow.smartcafeteria.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ltts.shadow.smartcafeteria.Dao.UserDao;
 import com.ltts.shadow.smartcafeteria.Models.User;
-import com.ltts.shadow.smartcafeteria.Repositories.UserRepository;
 
 @Service
 public class UserService
 {
 	@Autowired
-	private UserRepository UserRep;
+	private UserDao UserRep;
 	
-	public User FetchUserByUsernameAndPassword(String tempUsername, String password)
+	public User FetchUserByUsernameAndPassword(String username, String password)
 	{
-		return UserRep.findByUsernameAndPassword(tempUsername, password);
+		return UserRep.findByUsername(username);
 	}
 }

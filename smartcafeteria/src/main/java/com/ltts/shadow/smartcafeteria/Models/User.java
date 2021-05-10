@@ -1,15 +1,9 @@
 package com.ltts.shadow.smartcafeteria.Models;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.CreationTimestamp;
 
 
 @Entity
@@ -34,30 +28,19 @@ public class User
 	@Column(name = "password" , nullable = false, length = 45)
 	private String password;
 	
-	 @CreationTimestamp
-	    @Temporal(TemporalType.TIMESTAMP)
-	     private Date date;
-	
 
-	 
-	public User(String fullname, String company, String designation, String username, String password, Date date) {
+	public User(String fullname, String company, String designation, String username, String password) {
 		super();
 		this.fullname = fullname;
 		this.company = company;
 		this.designation = designation;
 		this.username = username;
 		this.password = password;
-		this.date = date;
 	}
-
-	
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public String getFullname() {
 		return fullname;
@@ -99,27 +82,11 @@ public class User
 		this.password = password;
 	}
 
-	
-	public Date getDate() {
-		return date;
-	}
-
-
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-
-
 	@Override
 	public String toString() {
 		return "User [fullname=" + fullname + ", company=" + company + ", designation=" + designation + ", username="
-				+ username + ", password=" + password + ", date=" + date + "]";
+				+ username + ", password=" + password + "]";
 	}
-
-
-
 	
 	
 }

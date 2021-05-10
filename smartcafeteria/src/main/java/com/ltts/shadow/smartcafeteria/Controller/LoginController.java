@@ -1,6 +1,6 @@
 package com.ltts.shadow.smartcafeteria.Controller;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ltts.shadow.smartcafeteria.Dao.LoginDao;
+import com.ltts.shadow.smartcafeteria.Dao.UserDao;
+import com.ltts.shadow.smartcafeteria.Models.Login;
 import com.ltts.shadow.smartcafeteria.Models.User;
-import com.ltts.shadow.smartcafeteria.Models.login;
-import com.ltts.shadow.smartcafeteria.Repositories.LoginRepository;
-import com.ltts.shadow.smartcafeteria.Repositories.UserRepository;
 import com.ltts.shadow.smartcafeteria.Services.UserService;
 
 
@@ -21,17 +21,16 @@ import com.ltts.shadow.smartcafeteria.Services.UserService;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
-public class AppController {
+public class LoginController {
 
 	@Autowired
-	UserRepository UserRep;
+	UserDao UserRep;
 	
 	@Autowired
-	LoginRepository loginRepo;
+	LoginDao logind;
 	
 	@Autowired
 	UserService UserSer;
-	
 
 	@RequestMapping("/users")
 	public List<User> makeList()
@@ -48,13 +47,6 @@ public class AppController {
 		return UserRep.save(us);
 	}
 	
-//	@PostMapping("/crusers1")
-//	public login create(@RequestBody login us) {
-//		return loginRepo.save(us);
-//		
-//	}
-	
-	
 	
 	@PostMapping("/login")
 	public User LoginUser(@RequestBody User us) throws Exception
@@ -66,14 +58,14 @@ public class AppController {
 		if(tempUsername!=null && tempPassword!=null)
 		{
 			userObj=UserSer.FetchUserByUsernameAndPassword(tempUsername, tempPassword);
-			login log= new login(us.getUsername(),us.getPassword());
-			loginRepo.save(log);
+			Login log=new Login(us.getUsername(),us.getPassword());
+			logind.save(log);
+			
 		}
 		if(userObj==null)
 		{
 			throw new Exception("Bad Credentials");
 		}
-		
 		return userObj;
 	}
 	
